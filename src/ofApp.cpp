@@ -2,14 +2,14 @@
 
 
 void ofApp::setup(){
-	this->b = Ball(3, 0.1, 3.0, 100.0, 32);
+	this->b = SoftBodyRect(10, 0.6, 40.0, 200, 200, 10, 5);
 	ofEnableSmoothing();
 	center = ofVec2f(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f);
 }
 
 
 void ofApp::update(){
-	this->b.update(ofGetElapsedTimef() * .1);
+	this->b.update(ofGetElapsedTimef() * .1f);
 }
 
 

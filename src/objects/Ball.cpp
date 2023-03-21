@@ -19,6 +19,8 @@ Ball::Ball(float k, float kd, float rest_length, const float radius, const int n
     {
         springs.emplace_back(&points[i], &points[(i+1)%num_points], k, kd, rest_length);
     }
+
+    desired_area = PI * pow(radius, 2);
 }
 
 void Ball::update(const float dt)
@@ -30,8 +32,8 @@ void Ball::update(const float dt)
     }
 
     const float curr_area = area();
-    constexpr float pressure_strength = 0.001f; // Adjust this value to control the pressure strength
-    const float pressure = (PI * pow(radius, 2) - curr_area) * pressure_strength;
+    constexpr float pressure_strength = 0.01f; // Adjust this value to control the pressure strength
+    const float pressure = (desired_area - curr_area) * pressure_strength;
     
     // Calculate the average position of the points
     ofVec2f average_pos(0, 0);
@@ -39,7 +41,7 @@ void Ball::update(const float dt)
     {
         average_pos += mass.pos;
     }
-    average_pos /= points.size();
+    average_pos /= static_cast<float>(points.size());
 
     for (auto& point : points)
     {
@@ -48,9 +50,8 @@ void Ball::update(const float dt)
         dir.normalize();
 
         // Apply the pressure force in the direction of the point
-        point.acc += dir * pressure * dt;
+        point.acc += dir * pressure;
 
-        point.vel *= 0.85;
         point.update(dt);
     }
 }
@@ -72,5 +73,5 @@ float Ball::area() const
         area += p1.x * p2.y - p2.x * p1.y;
     }
 
-    return 0.5 * abs(area);
+    return 0.5f * fabsf(area);
 }
