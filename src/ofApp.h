@@ -6,10 +6,10 @@
 
 class ofApp : public ofBaseApp{
 	public:
-		void setup();
-		void update();
-		void draw();
-		Ball b;
-		//SoftBodyRect b;
+		void setup() override;
+		void update() override;
+		void draw() override;
+		//Ball b;
+		SoftBodyRect b;
 		ofVec2f center;
 };

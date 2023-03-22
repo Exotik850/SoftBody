@@ -1,35 +1,35 @@
 ﻿#include "Spring.h"
 
 #define MAX_FORCE 100
+#define MIN_FORCE 0.25f
 #define EPSILON 0.001f
 
-void Spring::update(float dt) const
+void Spring::update(float dt)
 {
     ofVec2f dir = b->pos - a->pos;
     const float x = dir.length() - length;
 
     // Check for non-zero length before normalizing
     if (fabsf(x) > FLT_EPSILON) dir.normalize();
+    else return;
 
     // F = -k * (x - x0)
     if (x - EPSILON > length && x + EPSILON < length) return;
     const ofVec2f spring_force = dir * (k * x);
-
-    const ofVec2f avel = a->vel();
-    const ofVec2f bvel = b->vel();
-    const ofVec2f rel_velocity = bvel - avel;
-    const ofVec2f damping_force = damp * rel_velocity;
+    
+    const ofVec2f damping_force = damp * (b->vel() - a->vel());
 
     // Apply spring and damping forces
     ofVec2f total_force = (spring_force + damping_force) * dt * 0.5f;
     total_force = total_force.getLimited(MAX_FORCE);
 
-    if (total_force.lengthSquared() > 0.5f)
+    if (total_force.lengthSquared() > MIN_FORCE)
     {
         a->acc += total_force;
         b->acc -= total_force;
     }
 
+    force = total_force;
 }
 
 void Spring::draw() const
@@ -56,4 +56,13 @@ void Spring::draw() const
     //polyline.addVertex(b->pos.x, b->pos.y, 0.0);
     //polyline.draw();
     ofDrawLine(a->pos, b->pos);
+    //if (force.length() > 0.1f)
+    //{
+    //    ofPushMatrix();
+    //    ofSetColor(255, 0, 0);
+    //    ofDrawLine(a->pos, a->pos + force);
+    //    //ofSetColor(0, 0, 255);
+    //    //ofDrawLine(b->pos, b->pos - force);
+    //    ofPopMatrix();
+    //}
 }

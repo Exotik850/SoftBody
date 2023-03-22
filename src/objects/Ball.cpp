@@ -1,4 +1,6 @@
 #include "Ball.h"
+#define GRAV ofVec2f(0, 9.8)
+
 
 Ball::Ball() {
 
@@ -27,33 +29,41 @@ Ball::Ball(float k, float kd, const float radius, const int num_points)
 void Ball::update(const float dt)
 {
     ofSetWindowTitle(ofToString(ofGetFrameRate(), 0));
+    
+    
     for (Spring& spring : springs)
     {
         spring.update(dt);
     }
-
-    const float curr_area = area();
-    constexpr float pressure_strength = 0.01f; // Adjust this value to control the pressure strength
-    const float pressure = (desired_area - curr_area) * pressure_strength;
     
-    // Calculate the average position of the points
-    ofVec2f average_pos(0, 0);
-    for (const Mass& mass : points)
+    const float diff = desired_area - area();
+
+    if (abs(diff) > FLT_EPSILON)
     {
-        average_pos += mass.pos;
+        constexpr float pressure_strength = 0.01f;
+        const float pressure = diff * pressure_strength;
+        // Calculate the average position of the points
+        ofVec2f average_pos(0, 0);
+        for (const Mass& mass : points)
+        {
+            average_pos += mass.pos;
+        }
+        average_pos /= static_cast<float>(points.size());
+
+        for (auto& point : points)
+        {
+            // Calculate the direction from the average position to the point
+            ofVec2f dir = point.pos - average_pos;
+            dir.normalize();
+
+            // Apply the pressure force in the direction of the point
+            point.acc += dir * pressure;
+        }
     }
-    average_pos /= static_cast<float>(points.size());
 
-    for (auto& point : points)
+    for (auto &m: points)
     {
-        // Calculate the direction from the average position to the point
-        ofVec2f dir = point.pos - average_pos;
-        dir.normalize();
-
-        // Apply the pressure force in the direction of the point
-        point.acc += dir * pressure;
-
-        point.update(dt);
+        m.update(dt);
     }
 }
 

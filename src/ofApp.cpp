@@ -2,15 +2,16 @@
 
 
 void ofApp::setup(){
-	//this->b = SoftBodyRect(15, 0.7, 200, 200, 3, 3);
-	this->b = Ball(10.0, 0.7, 100.0, 25);
+	this->b = SoftBodyRect(45, 1.5, 450, 300, 9, 4);
+	//this->b = Ball(10.0, 0.5, 100.0, 20);
 	ofEnableSmoothing();
 	center = ofVec2f(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f);
 }
 
 
 void ofApp::update(){
-	this->b.update(ofGetElapsedTimef() * .1f);
+	const float dt = ofGetElapsedTimef();
+	for (int _ = 0; _ < 10; _++) this->b.update(dt * .01f);
 }
 
 

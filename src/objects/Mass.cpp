@@ -1,5 +1,4 @@
 #include "Mass.h"
-#define GRAV ofVec2f(0, 1)
 
 Mass::Mass(float x, float y, float r, float m) :
 	radius(r), mass(m)

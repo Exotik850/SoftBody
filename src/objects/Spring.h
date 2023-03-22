@@ -10,9 +10,10 @@ public:
     float k;
     float damp;
     float length;
+    ofVec2f force;
 
     Spring(Mass* a, Mass* b, float k, float d, float l)
-        : a(a), b(b), k(k), damp(d), length(l) {}
-    void update(float dt) const;
+        : a(a), b(b), k(k), damp(d), length(l) { force = ofVec2f(0, 0); }
+    void update(float dt);
     void draw() const;
 };
