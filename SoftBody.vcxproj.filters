@@ -1,36 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Mass.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="Mass.h">
-      <Filter>src</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="icon.rc" />
-  </ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\objects\Ball.cpp">
+			<Filter>src\objects</Filter>
+		</ClCompile>
+		<ClCompile Include="src\objects\Mass.cpp">
+			<Filter>src\objects</Filter>
+		</ClCompile>
+		<ClCompile Include="src\objects\SoftBodyRect.cpp">
+			<Filter>src\objects</Filter>
+		</ClCompile>
+		<ClCompile Include="src\objects\Spring.cpp">
+			<Filter>src\objects</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\objects">
+			<UniqueIdentifier>{6A36A227-8C6B-6588-92FE-025D}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\objects\Ball.h">
+			<Filter>src\objects</Filter>
+		</ClInclude>
+		<ClInclude Include="src\objects\Mass.h">
+			<Filter>src\objects</Filter>
+		</ClInclude>
+		<ClInclude Include="src\objects\SoftBodyRect.h">
+			<Filter>src\objects</Filter>
+		</ClInclude>
+		<ClInclude Include="src\objects\Spring.h">
+			<Filter>src\objects</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
 </Project>

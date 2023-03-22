@@ -100,7 +100,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\objects</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
@@ -120,7 +120,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\objects</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
@@ -140,7 +140,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\objects</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
@@ -163,7 +163,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\objects</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
@@ -181,164 +181,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\objects\Ball.cpp">
-      <AssemblerOutput>NoListing</AssemblerOutput>
-      <AssemblerListingLocation>obj\x64\Debug\</AssemblerListingLocation>
-      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-      <BrowseInformation>false</BrowseInformation>
-      <BrowseInformationFile>obj\x64\Debug\</BrowseInformationFile>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <ConformanceMode>Default</ConformanceMode>
-      <DiagnosticsFormat>Column</DiagnosticsFormat>
-      <DisableLanguageExtensions>false</DisableLanguageExtensions>
-      <ErrorReporting>Prompt</ErrorReporting>
-      <ExpandAttributedSource>false</ExpandAttributedSource>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <EnableASAN>false</EnableASAN>
-      <EnableFuzzer>false</EnableFuzzer>
-      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Precise</FloatingPointModel>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <GenerateModuleDependencies>false</GenerateModuleDependencies>
-      <GenerateSourceDependencies>false</GenerateSourceDependencies>
-      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
-      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-      <LanguageStandard>Default</LanguageStandard>
-      <LanguageStandard_C>Default</LanguageStandard_C>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ModuleDependenciesFile>obj\x64\Debug\</ModuleDependenciesFile>
-      <ModuleOutputFile>obj\x64\Debug\</ModuleOutputFile>
-      <OmitDefaultLibName>false</OmitDefaultLibName>
-      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <Optimization>Disabled</Optimization>
-      <ObjectFileName>obj\x64\Debug\src\</ObjectFileName>
-      <CallingConvention>Cdecl</CallingConvention>
-      <ProgramDataBaseFileName>obj\x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>obj\x64\Debug\SoftBody_debug.pch</PrecompiledHeaderOutputFile>
-      <PreprocessToFile>false</PreprocessToFile>
-      <PreprocessKeepComments>false</PreprocessKeepComments>
-      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-      <ShowIncludes>false</ShowIncludes>
-      <SourceDependenciesFile>obj\x64\Debug\</SourceDependenciesFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <BufferSecurityCheck>true</BufferSecurityCheck>
-      <SmallerTypeCheck>false</SmallerTypeCheck>
-      <SpectreMitigation>false</SpectreMitigation>
-      <StructMemberAlignment>Default</StructMemberAlignment>
-      <SupportJustMyCode>false</SupportJustMyCode>
-      <TrackerLogDirectory>obj\x64\Debug\SoftBody.tlog\</TrackerLogDirectory>
-      <TranslateIncludes>false</TranslateIncludes>
-      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <UseFullPaths>true</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <XMLDocumentationFileName>obj\x64\Debug\</XMLDocumentationFileName>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <IntelJCCErratum>false</IntelJCCErratum>
-      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;POCO_STATIC;CAIRO_WIN32_STATIC_BUILD;DISABLE_SOME_FLOATING_POINT;CURL_STATICLIB;_UNICODE;UNICODE;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\graphics;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\app;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\sound;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\utils;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\communication;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\video;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\types;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\math;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\3d;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\gl;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\events;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glm\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\rtAudio\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\quicktime\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include\freetype2;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freeImage\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\fmod\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\videoInput\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glew\include\;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glu\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\tess2\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\cairo\include\cairo;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glfw\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openssl\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\utf8\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\boost\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\json\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\curl\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\uriparser\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\pugixml\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\addons;</AdditionalIncludeDirectories>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LinkCompiled>true</LinkCompiled>
-    </ClCompile>
-    <ClCompile Include="src\objects\Mass.cpp">
-      <AssemblerOutput>NoListing</AssemblerOutput>
-      <AssemblerListingLocation>obj\x64\Debug\</AssemblerListingLocation>
-      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-      <BrowseInformation>false</BrowseInformation>
-      <BrowseInformationFile>obj\x64\Debug\</BrowseInformationFile>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <ConformanceMode>Default</ConformanceMode>
-      <DiagnosticsFormat>Column</DiagnosticsFormat>
-      <DisableLanguageExtensions>false</DisableLanguageExtensions>
-      <ErrorReporting>Prompt</ErrorReporting>
-      <ExpandAttributedSource>false</ExpandAttributedSource>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <EnableASAN>false</EnableASAN>
-      <EnableFuzzer>false</EnableFuzzer>
-      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Precise</FloatingPointModel>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <GenerateModuleDependencies>false</GenerateModuleDependencies>
-      <GenerateSourceDependencies>false</GenerateSourceDependencies>
-      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
-      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-      <LanguageStandard>Default</LanguageStandard>
-      <LanguageStandard_C>Default</LanguageStandard_C>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ModuleDependenciesFile>obj\x64\Debug\</ModuleDependenciesFile>
-      <ModuleOutputFile>obj\x64\Debug\</ModuleOutputFile>
-      <OmitDefaultLibName>false</OmitDefaultLibName>
-      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <Optimization>Disabled</Optimization>
-      <ObjectFileName>obj\x64\Debug\src\</ObjectFileName>
-      <CallingConvention>Cdecl</CallingConvention>
-      <ProgramDataBaseFileName>obj\x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>obj\x64\Debug\SoftBody_debug.pch</PrecompiledHeaderOutputFile>
-      <PreprocessToFile>false</PreprocessToFile>
-      <PreprocessKeepComments>false</PreprocessKeepComments>
-      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-      <ShowIncludes>false</ShowIncludes>
-      <SourceDependenciesFile>obj\x64\Debug\</SourceDependenciesFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <BufferSecurityCheck>true</BufferSecurityCheck>
-      <SmallerTypeCheck>false</SmallerTypeCheck>
-      <SpectreMitigation>false</SpectreMitigation>
-      <StructMemberAlignment>Default</StructMemberAlignment>
-      <SupportJustMyCode>false</SupportJustMyCode>
-      <TrackerLogDirectory>obj\x64\Debug\SoftBody.tlog\</TrackerLogDirectory>
-      <TranslateIncludes>false</TranslateIncludes>
-      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <UseFullPaths>true</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <XMLDocumentationFileName>obj\x64\Debug\</XMLDocumentationFileName>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <IntelJCCErratum>false</IntelJCCErratum>
-      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;POCO_STATIC;CAIRO_WIN32_STATIC_BUILD;DISABLE_SOME_FLOATING_POINT;CURL_STATICLIB;_UNICODE;UNICODE;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\graphics;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\app;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\sound;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\utils;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\communication;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\video;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\types;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\math;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\3d;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\gl;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\events;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glm\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\rtAudio\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\quicktime\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include\freetype2;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freeImage\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\fmod\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\videoInput\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glew\include\;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glu\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\tess2\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\cairo\include\cairo;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glfw\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openssl\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\utf8\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\boost\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\json\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\curl\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\uriparser\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\pugixml\include;C:\Users\KidKo\Documents\Code\of_v0.11.2_vs2017_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\addons;</AdditionalIncludeDirectories>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LinkCompiled>true</LinkCompiled>
-    </ClCompile>
+    <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\objects\Ball.cpp" />
+    <ClCompile Include="src\objects\Mass.cpp" />
     <ClCompile Include="src\objects\SoftBodyRect.cpp" />
     <ClCompile Include="src\objects\Spring.cpp" />
-    <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\objects\Ball.h" />
     <ClInclude Include="src\objects\Mass.h" />
     <ClInclude Include="src\objects\SoftBodyRect.h" />
     <ClInclude Include="src\objects\Spring.h" />
-    <ClInclude Include="src\ofApp.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

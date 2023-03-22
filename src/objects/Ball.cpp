@@ -4,10 +4,11 @@ Ball::Ball() {
 
 }
 
-Ball::Ball(float k, float kd, float rest_length, const float radius, const int num_points)
-    : num(num_points), radius(radius), k(k), kd(kd), restLength(rest_length)
+Ball::Ball(float k, float kd, const float radius, const int num_points)
+    : num(num_points), radius(radius), k(k), kd(kd)
 {
     const float angle_step = TWO_PI / num_points;
+    const float rest_length = (TWO_PI * radius) / num_points;
     for (int i = 0; i < num_points; ++i)
     {
         float x = radius * cos(angle_step * i);

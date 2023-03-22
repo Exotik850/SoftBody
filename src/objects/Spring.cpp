@@ -1,6 +1,7 @@
 ﻿#include "Spring.h"
 
-#define MAX_FORCE 10
+#define MAX_FORCE 100
+#define EPSILON 0.001f
 
 void Spring::update(float dt) const
 {
@@ -11,6 +12,7 @@ void Spring::update(float dt) const
     if (fabsf(x) > FLT_EPSILON) dir.normalize();
 
     // F = -k * (x - x0)
+    if (x - EPSILON > length && x + EPSILON < length) return;
     const ofVec2f spring_force = dir * (k * x);
 
     const ofVec2f avel = a->vel();
@@ -21,9 +23,13 @@ void Spring::update(float dt) const
     // Apply spring and damping forces
     ofVec2f total_force = (spring_force + damping_force) * dt * 0.5f;
     total_force = total_force.getLimited(MAX_FORCE);
-    
-    a->acc += total_force;
-    b->acc -= total_force;
+
+    if (total_force.lengthSquared() > 0.5f)
+    {
+        a->acc += total_force;
+        b->acc -= total_force;
+    }
+
 }
 
 void Spring::draw() const

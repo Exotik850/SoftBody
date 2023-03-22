@@ -7,13 +7,13 @@ class SoftBodyRect
 private:
     int num_points_w, num_points_h;
     float width, height;
-    float k, kd, restLength;
+    float k, kd;
     vector<Mass> points;
     vector<Spring> springs;
     
 public:
     SoftBodyRect();
-    SoftBodyRect(float k, float kd, float rest_length, float width, float height, int num_points_w, int num_points_h);
+    SoftBodyRect(float k, float kd, float width, float height, int num_points_w, int num_points_h);
     void update(float dt);
     void draw();
 };

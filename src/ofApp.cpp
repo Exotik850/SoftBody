@@ -2,7 +2,8 @@
 
 
 void ofApp::setup(){
-	this->b = SoftBodyRect(10, 0.6, 40.0, 200, 200, 10, 5);
+	//this->b = SoftBodyRect(15, 0.7, 200, 200, 3, 3);
+	this->b = Ball(10.0, 0.7, 100.0, 25);
 	ofEnableSmoothing();
 	center = ofVec2f(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f);
 }

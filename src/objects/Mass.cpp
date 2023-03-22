@@ -17,13 +17,14 @@ ofVec2f Mass::vel() const
 void Mass::update(float dt)
 {
 	const ofVec2f temp_pos = pos;
-	pos += (pos - prevPos) + acc * dt * dt;
+	pos += (pos - prevPos) + (acc / mass) * dt * dt;
 	prevPos = temp_pos;
 	acc = GRAV;
+	//acc *= 0;
 
 	if (pos.y > ofGetHeight() / 2 - radius) {
 		pos.y = ofGetHeight() / 2 - radius;
-		prevPos.y = pos.y + (pos.y - prevPos.y) * -0.8; // restitution coefficient of 0.8
+		//prevPos.y = pos.y + (pos.y - prevPos.y) * -0.8; // restitution coefficient of 0.8
 	}
 }
 
