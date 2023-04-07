@@ -10,13 +10,15 @@ Ball::Ball(float k, float kd, const float radius, const int num_points)
     : num(num_points), radius(radius), k(k), kd(kd)
 {
     const float angle_step = TWO_PI / num_points;
-    const float rest_length = (TWO_PI * radius) / num_points;
+    const float rest_length = angle_step * radius;
     for (int i = 0; i < num_points; ++i)
     {
         float x = radius * cos(angle_step * i);
         float y = radius * sin(angle_step * i);
-        points.emplace_back(x, y, 5.0, 3.0);
+        points.emplace_back(x, y, 5.0, 9.0, true);
+        line.addVertex(x, y, 0);
     }
+    line.close();
 
     for (int i = 0; i < num_points; ++i)
     {
@@ -36,41 +38,40 @@ void Ball::update(const float dt)
         spring.update(dt);
     }
     
-    const float diff = desired_area - area();
+    const float diff = desired_area - line.getArea();
 
-    if (abs(diff) > FLT_EPSILON)
+    if (abs(diff) <= FLT_EPSILON) return;
+        
+    constexpr float pressure_strength = 0.01f;
+    const float pressure = diff * pressure_strength;
+    // Calculate the average position of the points
+    const ofVec2f average_pos = line.getCentroid2D();
+
+    for (auto& point : points)
     {
-        constexpr float pressure_strength = 0.01f;
-        const float pressure = diff * pressure_strength;
-        // Calculate the average position of the points
-        ofVec2f average_pos(0, 0);
-        for (const Mass& mass : points)
-        {
-            average_pos += mass.pos;
-        }
-        average_pos /= static_cast<float>(points.size());
+        // Calculate the direction from the average position to the point
+        ofVec2f dir = point.pos - average_pos;
+        dir.normalize();
 
-        for (auto& point : points)
-        {
-            // Calculate the direction from the average position to the point
-            ofVec2f dir = point.pos - average_pos;
-            dir.normalize();
-
-            // Apply the pressure force in the direction of the point
-            point.acc += dir * pressure;
-        }
+        // Apply the pressure force in the direction of the point
+        point.acc += dir * pressure;
     }
 
-    for (auto &m: points)
+    auto &verts = line.getVertices();
+    for (int i = 0; i < points.size(); ++i)
     {
+        auto &m = points[i];
         m.update(dt);
+        verts[i].x = m.pos.x;
+        verts[i].y = m.pos.y;
     }
 }
 
 void Ball::draw()
 {
-	for (Mass &m : points) m.draw();
-    for (Spring &s : springs) s.draw();
+	//for (Mass &m : points) m.draw();
+    //for (Spring &s : springs) s.draw();
+    line.draw();
 }
 
 float Ball::area() const

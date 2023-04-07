@@ -1,29 +1,33 @@
 #include "Mass.h"
 
-Mass::Mass(float x, float y, float r, float m) :
-	radius(r), mass(m)
+Mass::Mass(float x, float y, float r, float m, bool k) :
+	radius(r), mass(m), kinetic(k)
 {
-	pos = ofVec2f(x, y);
+	pos = {x, y};
 	prevPos = pos;
-	acc = ofVec2f(0, 0);
+	acc = {0, 0};
 }
 
 ofVec2f Mass::vel() const 
 {
-	return pos - prevPos;
+	if (kinetic) return pos - prevPos;
+	return {};
 }
+
+
 
 void Mass::update(float dt)
 {
+	if (!kinetic) return;
 	const ofVec2f temp_pos = pos;
-	pos += (pos - prevPos) + (acc / mass) * dt * dt;
+	const auto v = vel();
+	pos += v * dt + (acc / mass) * dt * dt;
 	prevPos = temp_pos;
-	acc = GRAV;
-	//acc *= 0;
-
-	if (pos.y > ofGetHeight() / 2 - radius) {
-		pos.y = ofGetHeight() / 2 - radius;
-		//prevPos.y = pos.y + (pos.y - prevPos.y) * -0.8; // restitution coefficient of 0.8
+	acc = GRAV * mass;
+	if (pos.y + radius > ofGetHeight())
+	{
+		pos.y = ofGetHeight() - radius;
+		prevPos = v * -0.8 + pos;
 	}
 }
 

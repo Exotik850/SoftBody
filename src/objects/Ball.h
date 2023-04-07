@@ -8,7 +8,7 @@ class Ball
 public:
     vector<Mass> points;
     vector<Spring> springs;
-    float gas_amt;
+	ofPolyline line;
     Ball();
     Ball(float k, float kd, float radius, int num_points);
     void update(float dt);
